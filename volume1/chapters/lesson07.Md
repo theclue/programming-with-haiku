@@ -79,21 +79,17 @@ Now let's take some time to learn some math that we will need in future lessons.
 
 People use the decimal system, also known as base 10. It is called base 10 because there are 10 possible values in each column, from zero to nine. When you were very young, you may have heard your arithmetic teacher talk about the \"ones place,\" the \"tens place,\" and the \"hundreds place.\" The name for the column is the same as 10 raised to the power of the number of columns moving from right to left, counting from zero.
 
-+---------------------+--------------------+-----------------+-----------------+
-| \"Thousands Place\" | \"Hundreds Place\" | \"Tens Place\"  | \"Ones Place\"  |
-+=====================+====================+=================+=================+
-| 1000 = 10^3^        | 100 = 10^2^        | 10 = 10^1^      | 1 = 10^0^       |
-+---------------------+--------------------+-----------------+-----------------+
+| \"Thousands Place\" | \"Hundreds Place\" | \"Tens Place\" | \"Ones Place\" |
+| --- | --- | --- | --- |
+| 1000 = 10^3^ | 100 = 10^2^ | 10 = 10^1^ | 1 = 10^0^ |
 
 For the number 5,234, the total is (1000 x 5) + (100 x 2) + (10 x 3) + 4.
 
 The math involved at the bare metal level of interaction with computers is far removed from anything that we, as people, would have any use for. Computers use binary math -- base 2 counting. The only values which exist are 1 and 0. The digit \"places\" in base 2 math look like this:
 
-+------------------+-----------------+-----------------+-----------------+
-| \"Eights Place\" | \"Fours Place\" | \"Twos Place\"  | \"Ones Place\"  |
-+==================+=================+=================+=================+
-| 8 = 2^3^         | 4 = 2^2^        | 2 = 2^1^        | 1 = 2^0^        |
-+------------------+-----------------+-----------------+-----------------+
+| \"Eights Place\" | \"Fours Place\" | \"Twos Place\" | \"Ones Place\" |
+| --- | --- | --- | --- |
+| 8 = 2^3^ | 4 = 2^2^ | 2 = 2^1^ | 1 = 2^0^ |
 
 Each individual digit in binary math is called a **bit**. It's just a bit of information, and it doesn't do much on its own. Bits are grouped together into bundles of 8, called **bytes**. Whenever we do any binary math when programming, it will involve at least one byte, and often more, but for now we'll just stick to one to keep things as simple as possible for this confusing topic.
 
@@ -101,11 +97,9 @@ Remember that binary numbers are just a different way of writing numbers, like t
 
 To convert a number from binary to decimal, you add up the values in each place. Each digit in a byte is simply a power of two:
 
-+---------------+------+------+------+------+------+------+------+-------+
-| Bit Number    | 7    | 6    | 5    | 4    | 3    | 2    | 1    | 0     |
-+===============+======+======+======+======+======+======+======+=======+
-| Decimal Value | 128  | 64   | 32   | 16   | 8    | 4    | 2    | 1     |
-+---------------+------+------+------+------+------+------+------+-------+
+| Bit Number | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Decimal Value | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
 
 For each column that has a binary 1 in it, you add the power of 2 that is assigned to that column. For example, binary 10000000 is decimal 128. The only column that has a 1 in it is the first one, which has a decimal value of 128. Binary 10000111 is decimal 135. How? 128 + 4 + 2 + 1.
 
@@ -113,17 +107,12 @@ It's possible to do addition, subtraction, and any other regular mathematical op
 
 : Bitwise operators
 
-+----------------------+----------------------------+----------------------------+
-| Operator             | Name                       | Description                |
-+======================+============================+============================+
-| &                    | Bitwise AND                | Turns bits off             |
-+----------------------+----------------------------+----------------------------+
-| |                    | Bitwise OR                 | Turns bits on              |
-+----------------------+----------------------------+----------------------------+
-| \^                   | Bitwise Exclusive OR (XOR) | Flips bits                 |
-+----------------------+----------------------------+----------------------------+
-| \~                   | Bitwise NOT                | Flips all bits in a number |
-+----------------------+----------------------------+----------------------------+
+| Operator | Name | Description |
+| --- | --- | --- |
+| & | Bitwise AND | Turns bits off |
+| \| | Bitwise OR | Turns bits on |
+| \^ | Bitwise Exclusive OR (XOR) | Flips bits |
+| \~ | Bitwise NOT | Flips all bits in a number |
 
 This table doesn't have the space to give all of the information. Much more explanation is required. These are special mathematical operations with specific purposes. The Boolean AND, OR, and NOT operators are used for program logic, i.e. linking together conditions for *if* statements and the like. The bitwise operators in the table above are for manipulating the bits in numbers.
 
@@ -135,29 +124,21 @@ Bitwise AND is used to turn off bits in a number, that is, set certain 1 bits in
 
 255 & 240 = 240
 
-+----------------------+----------------------+-----------------------+
-|                      | Decimal              | Binary                |
-+======================+======================+=======================+
-|                      | 255                  | *11111111*            |
-+----------------------+----------------------+-----------------------+
-| AND                  | 240                  | *11110000*            |
-+----------------------+----------------------+-----------------------+
-| =                    | 240                  | *11110000*            |
-+----------------------+----------------------+-----------------------+
+|  | Decimal | Binary |
+| --- | --- | --- |
+|  | 255 | *11111111* |
+| AND | 240 | *11110000* |
+| = | 240 | *11110000* |
 
 #### Example 2
 
 240 & 170 = 160
 
-+----------------------+----------------------+-----------------------+
-|                      | Decimal              | Binary                |
-+======================+======================+=======================+
-|                      | 240                  | *11110000*            |
-+----------------------+----------------------+-----------------------+
-| AND                  | 170                  | *10101010*            |
-+----------------------+----------------------+-----------------------+
-| =                    | 160                  | *10100000*            |
-+----------------------+----------------------+-----------------------+
+|  | Decimal | Binary |
+| --- | --- | --- |
+|  | 240 | *11110000* |
+| AND | 170 | *10101010* |
+| = | 160 | *10100000* |
 
 The only time a bit stays on is when it is a 1 in the first AND second number. This is why the bitwise AND operator is used for turning bits off.
 
@@ -167,15 +148,11 @@ Let's say that we have a variable which has the value 199 and we want to turn of
 
 199 & 251 = 195
 
-+----------------------+----------------------+-----------------------+
-|                      | Decimal              | Binary                |
-+======================+======================+=======================+
-|                      | 199                  | *11000111*            |
-+----------------------+----------------------+-----------------------+
-| AND                  | 251                  | *11111011*            |
-+----------------------+----------------------+-----------------------+
-| =                    | 195                  | *11000011*            |
-+----------------------+----------------------+-----------------------+
+|  | Decimal | Binary |
+| --- | --- | --- |
+|  | 199 | *11000111* |
+| AND | 251 | *11111011* |
+| = | 195 | *11000011* |
 
 ### Bitwise OR
 
@@ -185,29 +162,21 @@ Bitwise OR is used in the opposite way to AND -- its purpose to turn *on* bits i
 
 192 | 15 = 207
 
-+----------------------+----------------------+-----------------------+
-|                      | Decimal              | Binary                |
-+======================+======================+=======================+
-|                      | 192                  | *11000000*            |
-+----------------------+----------------------+-----------------------+
-| OR                   | 15                   | *00001111*            |
-+----------------------+----------------------+-----------------------+
-| =                    | 207                  | *11001111*            |
-+----------------------+----------------------+-----------------------+
+|  | Decimal | Binary |
+| --- | --- | --- |
+|  | 192 | *11000000* |
+| OR | 15 | *00001111* |
+| = | 207 | *11001111* |
 
 ##### Example 2
 
 8 | 64 = 72
 
-+----------------------+----------------------+-----------------------+
-|                      | Decimal              | Binary                |
-+======================+======================+=======================+
-|                      | 8                    | *00001000*            |
-+----------------------+----------------------+-----------------------+
-| OR                   | 64                   | *01000000*            |
-+----------------------+----------------------+-----------------------+
-| =                    | 72                   | *01001000*            |
-+----------------------+----------------------+-----------------------+
+|  | Decimal | Binary |
+| --- | --- | --- |
+|  | 8 | *00001000* |
+| OR | 64 | *01000000* |
+| = | 72 | *01001000* |
 
 A bit is turned on whenever either bit is a 1. The math is easier when turning on a specific bit. It is merely a matter of ORing the number we want to change with a value of 2 to the power of the number of the bit. If we have a variable containing 36 and we need to turn on bit 1, then we OR our variable with 2^1^, which is 2.
 
@@ -215,15 +184,11 @@ A bit is turned on whenever either bit is a 1. The math is easier when turning o
 
 36 | 2 = 38
 
-+----------------------+----------------------+-----------------------+
-|                      | Decimal              | Binary                |
-+======================+======================+=======================+
-|                      | 36                   | *00100100*            |
-+----------------------+----------------------+-----------------------+
-| OR                   | 2                    | *00000010*            |
-+----------------------+----------------------+-----------------------+
-| =                    | 38                   | *00100110*            |
-+----------------------+----------------------+-----------------------+
+|  | Decimal | Binary |
+| --- | --- | --- |
+|  | 36 | *00100100* |
+| OR | 2 | *00000010* |
+| = | 38 | *00100110* |
 
 ### Bitwise XOR
 
@@ -233,15 +198,11 @@ Bitwise XOR is probably the weirdest of all of the bitwise operators. XOR stands
 
 36 \^ 255 = 219
 
-+----------------------+----------------------+-----------------------+
-|                      | Decimal              | Binary                |
-+======================+======================+=======================+
-|                      | 36                   | *00100100*            |
-+----------------------+----------------------+-----------------------+
-| XOR                  | 255                  | *11111111*            |
-+----------------------+----------------------+-----------------------+
-| =                    | 219                  | *11011011*            |
-+----------------------+----------------------+-----------------------+
+|  | Decimal | Binary |
+| --- | --- | --- |
+|  | 36 | *00100100* |
+| XOR | 255 | *11111111* |
+| = | 219 | *11011011* |
 
 XOR sets the output bits to 1 whenever the two input bits are different. So it is the bitwise equivalent to the != operator.
 
@@ -274,17 +235,12 @@ It's a little easier to figure out why it's called shifting by seeing what it ac
 
 : Bitwise shifting operators
 
-+-------------+-------------------------+-------------+--------------------------+-------------------------+
-| Code        | Mathematical Equivalent | Result      | Value in Binary (before) | Value in Binary (after) |
-+=============+=========================+=============+==========================+=========================+
-| *5 \<\< 2*  | 5 \* 2^2^               | 20          | *00000101*               | *00010100*              |
-+-------------+-------------------------+-------------+--------------------------+-------------------------+
-| *32 \<\< 1* | 32 \* 2^1^              | 64          | *00010000*               | *00100000*              |
-+-------------+-------------------------+-------------+--------------------------+-------------------------+
-| *64 \>\> 1* | 64 / 2^1^               | 32          | *01000000*               | *00100000*              |
-+-------------+-------------------------+-------------+--------------------------+-------------------------+
-| *7 \>\> 2*  | 7 / 2^2^                | 1           | *00000111*               | *00000001*              |
-+-------------+-------------------------+-------------+--------------------------+-------------------------+
+| Code | Mathematical Equivalent | Result | Value in Binary (before) | Value in Binary (after) |
+| --- | --- | --- | --- | --- |
+| *5 \<\< 2* | 5 \* 2^2^ | 20 | *00000101* | *00010100* |
+| *32 \<\< 1* | 32 \* 2^1^ | 64 | *00010000* | *00100000* |
+| *64 \>\> 1* | 64 / 2^1^ | 32 | *01000000* | *00100000* |
+| *7 \>\> 2* | 7 / 2^2^ | 1 | *00000111* | *00000001* |
 
 Knowing shift operations is especially handy when operating with values at the bit level because they allow us to do specific kinds math very, very quickly. Multiplying or dividing by a power of 2 is common in these situations and the equivalent calls to *pow()* or using regular division are far slower.
 

@@ -20,7 +20,7 @@ that's just fine. Let's get started.
 
 ## Our First Project
 
-![The Paladin New Project window](images/paladin2.png)
+![The Paladin New Project window](../images/paladin2.png)
 
 Run Paladin and you will be greeted by the start window. Choose to create a new project. At the top
 of the New Project window is a menu where you can choose what kind of project to create. Choose
@@ -151,7 +151,7 @@ main(void)
 Save your work and either click on Run from the Build menu or press Alt + R to build and run your
 project. If you've typed everything correctly, you should see this on the screen:
 
-![My first app's main window](images/myfirstappshot.png)
+![My first app's main window](../images/myfirstappshot.png)
 
 If you run into errors, carefully check to make sure that you've typed everything just the same as the code above.
 

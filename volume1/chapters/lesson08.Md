@@ -173,21 +173,14 @@ FILE * fopen(const char *filePath, const char *mode);
 
 : fopen mode strings
 
-+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-| Mode string                       | Function                                                                                                                                          |
-+===================================+===================================================================================================================================================+
-| \"r\"                             | Open a file for reading. The file has to exist.                                                                                                   |
-+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-| \"w\"                             | Open a file for writing. If the file exists, its contents are erased and it is treated as a new empty file.                                       |
-+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-| \"a\"                             | Open a file for writing. Any data written to it is added to the end of the file. If the file doesn't exist, it is created                         |
-+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-| \"r+\"                            | Open a file for updating, supporting both reading and writing. The file must already exist.                                                       |
-+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-| \"w+\"                            | Open a file for updating, supporting both reading and writing. If the file exists, its contents are erased and it is treated as a new empty file. |
-+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-| \"a+\"                            | Open a file for reading and appending. Reading can be done from anywhere in the file, but all writes are tacked onto the end of the file.         |
-+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| Mode string | Function |
+| --- | --- |
+| \"r\" | Open a file for reading. The file has to exist. |
+| \"w\" | Open a file for writing. If the file exists, its contents are erased and it is treated as a new empty file. |
+| \"a\" | Open a file for writing. Any data written to it is added to the end of the file. If the file doesn't exist, it is created |
+| \"r+\" | Open a file for updating, supporting both reading and writing. The file must already exist. |
+| \"w+\" | Open a file for updating, supporting both reading and writing. If the file exists, its contents are erased and it is treated as a new empty file. |
+| \"a+\" | Open a file for reading and appending. Reading can be done from anywhere in the file, but all writes are tacked onto the end of the file. |
 
 ```cpp
 int fclose(FILE *streamHandle);

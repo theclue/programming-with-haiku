@@ -24,7 +24,7 @@ Now we will be learning how to use both program resources and the Translation Ki
 
 First of all, let's start with the resource file for the project: Resources.rsrc. Creating a resource file isn't difficult, but let's look at the layout of the file when opened in QuickRes.
 
-![Our resource file loaded in QuickRes](images/quickres.png)
+![Our resource file loaded in QuickRes](../images/quickres.png)
 
 Each of the pictures has an entry in the file which shows its type, resource ID, name, size, and a miniature preview. Adding pictures to a resource file is just a matter of dragging them from Tracker and dropping them onto the QuickRes window. Deleting is just a couple of clicks, so nothing here is terribly complicated. The IDs are arbitrary, but they must be unique within each data type stored in the file. The name for each entry is optional, but highly recommended. You can add just about any kind of data you like to a resource file and use your own resource type codes, but try to keep them small because they have a direct impact on the executable's size. Large resources should really be kept in their own separate file. Let's move on to the code.
 

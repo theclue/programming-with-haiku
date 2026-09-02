@@ -1,0 +1,122 @@
+{
+  "note block": {
+    "prefix": "block-note",
+    "scope": "markdown",
+    "body": [
+      "::: note",
+      "$1",
+      ":::"
+    ],
+    "description": "Insert a note block"
+  },
+  "tip block": {
+    "prefix": "block-tip",
+    "scope": "markdown",
+    "body": [
+      "::: tip",
+      "$1",
+      ":::"
+    ],
+    "description": "Insert a tip block"
+  },
+  "warning block": {
+    "prefix": "block-warning",
+    "scope": "markdown",
+    "body": [
+      "::: warning",
+      "$1",
+      ":::"
+    ],
+    "description": "Insert a warning block"
+  },
+  "caution block": {
+    "prefix": "block-caution",
+    "scope": "markdown",
+    "body": [
+      "::: caution",
+      "$1",
+      ":::"
+    ],
+    "description": "Insert a caution block"
+  },
+  "important block": {
+    "prefix": "block-important",
+    "scope": "markdown",
+    "body": [
+      "::: important",
+      "$1",
+      ":::"
+    ],
+    "description": "Insert an important block"
+  },
+  "question block": {
+    "prefix": "block-question",
+    "scope": "markdown",
+    "body": [
+      "::: question",
+      "$1",
+      ":::"
+    ],
+    "description": "Insert a question block"
+  },
+  "error block": {
+    "prefix": "block-error",
+    "scope": "markdown",
+    "body": [
+      "::: error",
+      "$1",
+      ":::"
+    ],
+    "description": "Insert an error block"
+  },
+  "shellerror block": {
+    "prefix": "block-shellerror",
+    "scope": "markdown",
+    "body": [
+      "::: shellerror",
+      "$1",
+      ":::"
+    ],
+    "description": "Insert a shell error block"
+  },
+  "assignment block": {
+    "prefix": "block-assignment",
+    "scope": "markdown",
+    "body": [
+      "::: assignment",
+      "$1",
+      ":::"
+    ],
+    "description": "Insert an assignment block"
+  },
+  "tough block": {
+    "prefix": "block-tough",
+    "scope": "markdown",
+    "body": [
+      "::: tough",
+      "$1",
+      ":::"
+    ],
+    "description": "Insert a tough block"
+  },
+  "bughunt block": {
+    "prefix": "block-bughunt",
+    "scope": "markdown",
+    "body": [
+      "::: bughunt",
+      "$1",
+      ":::"
+    ],
+    "description": "Insert a bug hunt block"
+  },
+  "bugwarning block": {
+    "prefix": "block-bugwarning",
+    "scope": "markdown",
+    "body": [
+      "::: bugwarning",
+      "$1",
+      ":::"
+    ],
+    "description": "Insert a bug warning block"
+  }
+}

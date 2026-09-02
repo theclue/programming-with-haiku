@@ -51,17 +51,12 @@ The next strange trick we see in the code above is adding a number to a pointer.
 
 : Array and pointers corrispondences
 
-+----------------------+-------------------------+-----------------------+
-| Array Index          | Equivalent Pointer Math | Value                 |
-+======================+=========================+=======================+
-| *string\[0\]*        | *index*                 | *a*                   |
-+----------------------+-------------------------+-----------------------+
-| *string\[1\]*        | *index + (size \* 1)*   | *b*                   |
-+----------------------+-------------------------+-----------------------+
-| *string\[2\]*        | *index + (size \* 2)*   | *c*                   |
-+----------------------+-------------------------+-----------------------+
-| *string\[3\]*        | *index + (size \* 3)*   | *d*                   |
-+----------------------+-------------------------+-----------------------+
+| Array Index | Equivalent Pointer Math | Value |
+| --- | --- | --- |
+| *string\[0\]* | *index* | *a* |
+| *string\[1\]* | *index + (size \* 1)* | *b* |
+| *string\[2\]* | *index + (size \* 2)* | *c* |
+| *string\[3\]* | *index + (size \* 3)* | *d* |
 
 We can use this close link between arrays and pointers to pull off other fancy tricks, like initializing an entire *bool* array to true. How? *memset()*, which we haven't used in quite some time.
 
@@ -111,19 +106,13 @@ my2DArray:
 
 The easiest way to think of an array with more than one dimension is to think in terms of spatial dimensions, working from right to left as we add another pair of brackets of each dimension. One dimension is a line, two is a rectangle, and three is a cube. Beyond three, it's better to think of the dimensions as groups of cubes or groups of cube groups. Declaring and accessing an array with more than one dimension is just a matter of adding another set of brackets when declaring and accessing the array.
 
-+-----------------------------------+--------------------------------------------------------------------------------------------------+
-| Number of Dimensions              | Array Declaration                                                                                |
-+===================================+==================================================================================================+
-| 1                                 | *my1DArray \[elementCount\];*                                                                    |
-+-----------------------------------+--------------------------------------------------------------------------------------------------+
-| 2                                 | *my2DArray \[numRows\] \[itemsInRow\];*                                                          |
-+-----------------------------------+--------------------------------------------------------------------------------------------------+
-| 3                                 | *my3DArray \[numGrids\] \[rowsInGrid\] \[itemsInRow\];*                                          |
-+-----------------------------------+--------------------------------------------------------------------------------------------------+
-| 4                                 | *my4DArray \[numCubes\] \[numGrids\] \[numRows\] \[itemsInRow\];*                                |
-+-----------------------------------+--------------------------------------------------------------------------------------------------+
-| 5                                 | *my5DArray \[numCubeGroups\] \[cubesInGroup\] \[gridsInCube\] \[rowsInGrid\] \[elementsInRow\];* |
-+-----------------------------------+--------------------------------------------------------------------------------------------------+
+| Number of Dimensions | Array Declaration |
+| --- | --- |
+| 1 | *my1DArray \[elementCount\];* |
+| 2 | *my2DArray \[numRows\] \[itemsInRow\];* |
+| 3 | *my3DArray \[numGrids\] \[rowsInGrid\] \[itemsInRow\];* |
+| 4 | *my4DArray \[numCubes\] \[numGrids\] \[numRows\] \[itemsInRow\];* |
+| 5 | *my5DArray \[numCubeGroups\] \[cubesInGroup\] \[gridsInCube\] \[rowsInGrid\] \[elementsInRow\];* |
 
 Now that we have a handle on how multidimensional arrays are declared, let's put them to use in some sample code.
 

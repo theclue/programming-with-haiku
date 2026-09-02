@@ -30,7 +30,7 @@ Once you've followed these steps, save the changes to your resource file, close 
 
 We'll also need to set the version, signature, and launch flags for our application. For this, we will use the FileType Tracker add-on. Open your project's folder, select the resource file, right-click on it and choose FileType from the Add-ons submenu.
 
-![Our resource file in FileTypes](images/filetypes.png)
+![Our resource file in FileTypes](../images/filetypes.png)
 
 Some of the parts of this window are self-explanatory, but it's best we go over all of them anyway, starting with the application signature at the top. The signature should be set to the same string as the one passed to the BApplication constructor in our code minus the quotes. It's not an earth-shattering mistake to leave this out of your program's resources, but it should match the signature sent to BApplication if it's there.
 

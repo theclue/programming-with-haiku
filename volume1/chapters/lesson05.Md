@@ -90,27 +90,17 @@ Strings in C and C++ are very different from other data types. A string is an ar
 
 In addition to regular letters, there are also some special characters. These special characters all start with a backslash and for the purposes of memory requirements take up one byte even thought they take more than one character to type them. Note that these only work with a backslash -- a slash which \"leans\" to the left -- and not a forward slash.
 
-+-----------------------------------+-----------------------------------+
-| Character                         | Character Code                    |
-+===================================+===================================+
-| Backspace                         | \\b                               |
-+-----------------------------------+-----------------------------------+
-| Carriage Return                   | \\r                               |
-+-----------------------------------+-----------------------------------+
-| Form feed                         | \\f                               |
-+-----------------------------------+-----------------------------------+
-| NULL (string terminator)          | \\0                               |
-+-----------------------------------+-----------------------------------+
-| Newline                           | \\n                               |
-+-----------------------------------+-----------------------------------+
-| Tab                               | \\t                               |
-+-----------------------------------+-----------------------------------+
-| Backslash                         | \\\\                              |
-+-----------------------------------+-----------------------------------+
-| Single quote (\')                 | \\\'                              |
-+-----------------------------------+-----------------------------------+
-| Double quote (\")                 | \\\"                              |
-+-----------------------------------+-----------------------------------+
+| Character | Character Code |
+| --- | --- |
+| Backspace | \\b |
+| Carriage Return | \\r |
+| Form feed | \\f |
+| NULL (string terminator) | \\0 |
+| Newline | \\n |
+| Tab | \\t |
+| Backslash | \\\\ |
+| Single quote (\') | \\\' |
+| Double quote (\") | \\\" |
 
 The first four are not commonly used in Haiku or UNIX/Linux programming. The carriage return (\\r) is used instead the newline character (\\n) to start a new line on Macintosh computers. Windows operating systems use both in combination for the same task -- \\r\\n. Knowing this is handy when working with text files coming from other operating systems.
 

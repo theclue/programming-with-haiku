@@ -15,11 +15,12 @@ CSS_FILE = $(INCLUDE_DIR)/css/style.css
 CSS_ARG = --css=$(CSS_FILE)
 METADATA_ARG = --metadata-file=$(METADATA)
 MATH_FORMULAS = --webtex
+RESOURCE_PATH = --resource-path=.:chapters
 
 PDF_ENGINE=xelatex
-ARGS = $(MATH_FORMULAS) $(CSS_ARG) $(METADATA_ARG)
+ARGS = $(MATH_FORMULAS) $(CSS_ARG) $(METADATA_ARG) $(RESOURCE_PATH)
 
-MARKDOWN_FORMAT = markdown-pipe_tables+backtick_code_blocks+fancy_lists+table_captions+smart+fenced_divs
+MARKDOWN_FORMAT = markdown+pipe_tables+backtick_code_blocks+fancy_lists+table_captions+smart+fenced_divs
 
 CHAPTERS_DIR = ./chapters
 CHAPTERS := disclaimer.Md lesson01.Md
@@ -60,10 +61,11 @@ $(BUILD)/epub/$(OUTPUT_FILENAME).epub: $(MAKEFILE) $(METADATA) $(CHAPTERS_TARGET
 	mkdir -p $(BUILD)/epub
 	pandoc $(ARGS) --epub-cover-image=$(COVER_IMAGE) -f $(MARKDOWN_FORMAT) -t epub -o $@ -s $(CHAPTERS_TARGETS)
 
-$(BUILD)/html/$(OUTPUT_FILENAME).html.tar.gz : $(MAKEFILE) $(METADATA) $(CHAPTERS_TARGETS) $(CSS_FILE) $(IMAGES)
+$(BUILD)/html/$(OUTPUT_FILENAME).html.tar.gz : $(MAKEFILE) $(METADATA) $(CHAPTERS_TARGETS) $(CSS_FILE) $(IMAGES) \
+	$(INCLUDE_DIR)/pandoc/html-image-paths.lua
 	mkdir -p $(BUILD)/html_tmp
 	mkdir -p $(BUILD)/html
-	pandoc $(ARGS) --standalone --to=html5 -o $(BUILD)/html_tmp/$(OUTPUT_FILENAME).html $(CHAPTERS_TARGETS)
+	pandoc $(ARGS) --standalone --lua-filter=$(INCLUDE_DIR)/pandoc/html-image-paths.lua --to=html5 -o $(BUILD)/html_tmp/$(OUTPUT_FILENAME).html $(CHAPTERS_TARGETS)
 	cp -R $(IMAGES_DIR)/ $(BUILD)/html_tmp/$(IMAGES_DIR)/
 	tar -zcvf $(BUILD)/html/$(OUTPUT_FILENAME).html.tar.gz -C $(BUILD)/html_tmp .
 	rm -r $(BUILD)/html_tmp

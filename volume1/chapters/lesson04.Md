@@ -63,15 +63,11 @@ To add one final trick to our bag, we can also use Boolean logical operators to 
 
 : Boolean logic
 
-+-----------------+-----------------+------------------------------+------------------------------------------------------+
-| Boolean Value   | Operator        | Example                      | Means                                                |
-+=================+=================+==============================+======================================================+
-| AND             | *&&*            | *if (a == 1 && b == 2)*      | if *a* is 1 and *b* is 2                             |
-+-----------------+-----------------+------------------------------+------------------------------------------------------+
-| OR              | *||*            | *if (a == 1 || b == 2)*      | if *a* is 1 or *b* is 2                              |
-+-----------------+-----------------+------------------------------+------------------------------------------------------+
-| NOT             | *!*             | *if ( !(a == 1 || b == 2) )* | if the opposite of *a* equaling 1 and *b* equaling 2 |
-+-----------------+-----------------+------------------------------+------------------------------------------------------+
+| Boolean Value | Operator | Example | Means |
+| --- | --- | --- | --- |
+| AND | *&&* | *if (a == 1 && b == 2)* | if *a* is 1 and *b* is 2 |
+| OR | *\|\|* | *if (a == 1 \|\| b == 2)* | if *a* is 1 or *b* is 2 |
+| NOT | *!* | *if ( !(a == 1 \|\| b == 2) )* | if the opposite of *a* equaling 1 and *b* equaling 2 |
 
 Note that if you have more than one condition in an *if* statement, it may be a good idea to enclose each one in parentheses to make your code a little clearer unless the conditions are pretty short.
 

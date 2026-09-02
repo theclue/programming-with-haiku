@@ -46,23 +46,15 @@ Well, maybe we can't make files act like dogs, but the BFile class is an extreme
 
 Setting a BFile to a location involves a little more than just giving it a file path. There are actually four different versions of *SetTo()*. They take an open mode and either a string containing the path, a BEntry, an entry\_ref, or a BDirectory with a relative path in a string. The open mode is a combination of the following flags which includes a read or write mode:
 
-+-----------------------------------+---------------------------------------------------------+
-| Mode Flags                        | Description                                             |
-+===================================+=========================================================+
-| *B\_READ\_ONLY*                   | The BFile can read from, but not write to, the file.    |
-+-----------------------------------+---------------------------------------------------------+
-| *B\_WRITE\_ONLY*                  | The BFile can write to, but not read from, the file.    |
-+-----------------------------------+---------------------------------------------------------+
-| *B\_READ\_WRITE*                  | The BFile can read from and write to the file.          |
-+-----------------------------------+---------------------------------------------------------+
-| *B\_CREATE\_FILE*                 | Create the file if it doesn't already exist.            |
-+-----------------------------------+---------------------------------------------------------+
-| *B\_FAIL\_IF\_EXISTS*             | Insist on creating a new file and failing if it exists. |
-+-----------------------------------+---------------------------------------------------------+
-| *B\_ERASE\_FILE*                  | If the file exists, erase its data and attributes.      |
-+-----------------------------------+---------------------------------------------------------+
-| *B\_OPEN\_AT\_END*                | Set the read/write pointer to the file's end.           |
-+-----------------------------------+---------------------------------------------------------+
+| Mode Flags | Description |
+| --- | --- |
+| *B\_READ\_ONLY* | The BFile can read from, but not write to, the file. |
+| *B\_WRITE\_ONLY* | The BFile can write to, but not read from, the file. |
+| *B\_READ\_WRITE* | The BFile can read from and write to the file. |
+| *B\_CREATE\_FILE* | Create the file if it doesn't already exist. |
+| *B\_FAIL\_IF\_EXISTS* | Insist on creating a new file and failing if it exists. |
+| *B\_ERASE\_FILE* | If the file exists, erase its data and attributes. |
+| *B\_OPEN\_AT\_END* | Set the read/write pointer to the file's end. |
 
 : BFile flags
 
