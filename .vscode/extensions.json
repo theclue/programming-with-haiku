@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-vscode.makefile-tools",
+    "yzhang.markdown-all-in-one",
+    "DavidAnson.vscode-markdownlint",
+    "redhat.vscode-yaml",
+    "ms-azuretools.vscode-docker",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

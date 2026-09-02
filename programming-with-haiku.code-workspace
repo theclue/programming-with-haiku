@@ -1,0 +1,98 @@
+{
+  "folders": [
+    {
+      "name": "📚 Programming with Haiku",
+      "path": "."
+    },
+    {
+      "name": "📘 Volume 1",
+      "path": "volume1"
+    },
+    {
+      "name": "📙 Volume 2",
+      "path": "volume2"
+    },
+    {
+      "name": "🧩 Shared Includes",
+      "path": "include"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/build": true,
+      "**/.DS_Store": true
+    },
+    "search.exclude": {
+      "**/build": true
+    },
+    "markdownlint.config": {
+      "MD013": false
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.makefile-tools",
+      "yzhang.markdown-all-in-one",
+      "DavidAnson.vscode-markdownlint",
+      "redhat.vscode-yaml",
+      "ms-azuretools.vscode-docker",
+      "streetsidesoftware.code-spell-checker"
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "📚 Build all volumes",
+        "type": "shell",
+        "command": "make all",
+        "options": {
+          "cwd": "${workspaceFolder:📚 Programming with Haiku}"
+        },
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "📘 Build Volume 1",
+        "type": "shell",
+        "command": "make -C volume1 all",
+        "options": {
+          "cwd": "${workspaceFolder:📚 Programming with Haiku}"
+        },
+        "group": "build",
+        "problemMatcher": []
+      },
+      {
+        "label": "📙 Build Volume 2",
+        "type": "shell",
+        "command": "make -C volume2 all",
+        "options": {
+          "cwd": "${workspaceFolder:📚 Programming with Haiku}"
+        },
+        "group": "build",
+        "problemMatcher": []
+      },
+      {
+        "label": "🧹 Clean all builds",
+        "type": "shell",
+        "command": "make clean",
+        "options": {
+          "cwd": "${workspaceFolder:📚 Programming with Haiku}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "🐳 Build Docker image",
+        "type": "shell",
+        "command": "docker build -t programming-with-haiku .",
+        "options": {
+          "cwd": "${workspaceFolder:📚 Programming with Haiku}"
+        },
+        "problemMatcher": []
+      }
+    ]
+  }
+}

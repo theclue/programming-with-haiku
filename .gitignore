@@ -1,4 +1,10 @@
+# Generated artifacts
 build/
 *.log
+
+# macOS and AppleDouble metadata
 .DS_Store
+._*
+
+# Office temporary files
 ~*.odt

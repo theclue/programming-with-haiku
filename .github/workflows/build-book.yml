@@ -1,16 +1,48 @@
 name: build-book
 run-name: build-book
-on: [push]
+on:
+  push:
+    branches: [master]
+    tags: ['**']
+permissions:
+  contents: write
 jobs:
   build-book:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: sudo apt update
-      - run: sudo apt install -y calibre pandoc poppler-utils python3 python3-pip texlive texlive-fonts-extra texlive-xetex
-      - run: pip3 install pandoc-latex-environment
-      - run: make -C volume1 all png
-      - uses: actions/upload-artifact@v4
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Install build dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y calibre pandoc poppler-utils python3 python3-pip texlive texlive-fonts-extra texlive-xetex
+          pip3 install pandoc-latex-environment
+      - name: Build Volume 1
+        run: make -C volume1 all png
+      - name: Build Volume 2
+        run: make -C volume2 all png
+      - name: Publish release assets
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if ! gh release view "$GITHUB_REF_NAME"; then
+            gh release create "$GITHUB_REF_NAME" --verify-tag --generate-notes
+          fi
+          gh release upload "$GITHUB_REF_NAME" \
+            volume1/build/epub/* \
+            volume1/build/mobi/* \
+            volume1/build/pdf/* \
+            volume1/build/html/* \
+            volume2/build/epub/* \
+            volume2/build/mobi/* \
+            volume2/build/pdf/* \
+            volume2/build/html/*
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
         with:
-          path: "volume1/build/"
+          name: programming-with-haiku-builds
+          path: |
+            volume1/build/
+            volume2/build/
           if-no-files-found: error

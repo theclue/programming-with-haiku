@@ -1,4 +1,4 @@
-.PHONY = docbooks clean
+.PHONY: all book clean markdown mobi epub html pdf png
 
 BUILD = build
 MAKEFILE = Makefile
@@ -68,7 +68,11 @@ $(BUILD)/html/$(OUTPUT_FILENAME).html.tar.gz : $(MAKEFILE) $(METADATA) $(CHAPTER
 	tar -zcvf $(BUILD)/html/$(OUTPUT_FILENAME).html.tar.gz -C $(BUILD)/html_tmp .
 	rm -r $(BUILD)/html_tmp
 
-$(BUILD)/pdf/$(OUTPUT_FILENAME).pdf:  $(CHAPTERS_TARGETS) $(CSS_FILE)
+$(BUILD)/pdf/$(OUTPUT_FILENAME).pdf: $(MAKEFILE) $(METADATA) $(CHAPTERS_TARGETS) $(CSS_FILE) \
+	$(INCLUDE_DIR)/pandoc/eisvogel.latex \
+	$(INCLUDE_DIR)/latex/preamble.tex \
+	$(INCLUDE_DIR)/latex/before_body.tex \
+	$(INCLUDE_DIR)/latex/after_body.tex
 	mkdir -p $(BUILD)/markdown
 	mkdir -p $(BUILD)/pdf
 	pandoc $(ARGS) \
@@ -102,4 +106,3 @@ $(BUILD)/pdf/$(OUTPUT_FILENAME).pdf:  $(CHAPTERS_TARGETS) $(CSS_FILE)
 $(CHAPTERS_DIR)/%.Md : %.xml
 	mkdir -p $(CHAPTERS_DIR)
 	pandoc --highlight-style=pygments --wrap=none -f docbook -t $(MARKDOWN_FORMAT) --shift-heading-level-by=1 $< -o $@
-
