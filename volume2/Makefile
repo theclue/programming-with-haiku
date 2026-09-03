@@ -50,7 +50,7 @@ png: pdf
 
 $(BUILD)/markdown/$(OUTPUT_FILENAME).Md: $(CHAPTERS_TARGETS)
 	mkdir -p $(BUILD)/markdown
-	mdmerge $(CHAPTERS_TARGETS) -o $(BUILD)/markdown/$(OUTPUT_FILENAME).Md
+	cat $(CHAPTERS_TARGETS) > $@
 
 $(BUILD)/mobi/$(OUTPUT_FILENAME).mobi: epub
 	mkdir -p $(BUILD)/mobi

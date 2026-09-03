@@ -6,7 +6,7 @@ For those who are reading this after finishing the first volume of this serie, w
 
 Templates are a way of generalizing a class or function to deal with any type of data. They are most often used in creating container classes such as stacks, lists, and others. Taking advantage of this flexibility requires a few small changes to the declaration of the class or function which uses them. A template-based array class could look like this:
 
-``` {.c++}
+``` {.cpp}
 template <class T>
 class ObjectArray
 {
@@ -29,7 +29,7 @@ private:
 
 In this instance, the main difference between this and a regular class definition is the *template \<class T\>* section before the definition. This tells the compiler that any time we see *T*, we are talking about the type used by that class. Note that we can use pretty much any name we like for the type name, such as T, Key, Type, or whatever, but we have to use the name we declare in the template section to refer to the type name. The ObjectArray class has two properties: the number of elements, kept in *fSize*, and a heap-allocated buffer used to hold the individual elements pointed to by *fData*. Without worrying about the implementation, an ObjectArray instance could be used like this:
 
-``` {.c++}
+``` {.cpp}
 #include <stdio.h>
 #include "ObjectArray.h"
 
@@ -49,7 +49,7 @@ The key to using class templates is to specify the type in angle brackets. In th
 
 Defining functions in a template-based class isn't difficult. Many references to the class name need to include the type name. Here is the code used to define all of the functions in the above class definition for the ObjectArray class:
 
-``` {.c++}
+``` {.cpp}
 template <class T>
 ObjectArray<T>::ObjectArray(const uint32 &size)
   : fData(NULL),
@@ -116,7 +116,7 @@ Aside from being careful about adding *\<T\>* in a few places and the extra typi
 
 Sometimes you don't need the entire class to use a template. Perhaps all that is needed is a function or two which make use of templates. In this instance, all that is needed is to place the template declaration section in front of the return type for the function declaration like this:
 
-``` {.c++}
+``` {.cpp}
 class MyClass
 {
           MyClass(void);
@@ -159,7 +159,7 @@ Lists are best described as a collection of dynamically-allocated items. They ar
 
 Using STL containers also requires some extra typing because all of them are encapsulated into their own namespace. Namespaces are a way of creating groups of classes, functions, and data types. Often they are used to prevent conflicts between classes in different libraries that have the same name. A namespace is declared like this:
 
-``` {.c++}
+``` {.cpp}
 namespace myNamespace
 {
   int32 foo, bar;
@@ -168,7 +168,7 @@ namespace myNamespace
 
 Accessing elements inside a namespace requires specifying the namespace. For example, all STL containers are inside the *std* namespace. Declaring a vector of *int32* objects would look something like this:
 
-``` {.c++}
+``` {.cpp}
 // Note that there is no '.h' for this header and others in the STL. It's
 // just <vector>.
 #include <vector>
@@ -178,7 +178,7 @@ std::vector<int32> intVector;
 
 The double colon is the scope operator. Specifying items within the same namespace do not require it. Likewise, specifying an item in the global namespace from within another requires a double colon.
 
-``` {.c++}
+``` {.cpp}
 #include <stdio.h>
 
 bool gSomeFlag = true;
@@ -203,7 +203,7 @@ SomeFunction(void)
 
 Using a lot of items in another namespace can make for a lot of typing, so if you are using a particular namespace quite a lot, you can employ the *using* keyword to eliminate the extra typing.
 
-``` {.c++}
+``` {.cpp}
 #include <deque>
 #include <stdio.h>
 
@@ -233,7 +233,7 @@ main(void)
 
 The *using* keyword offers fine-grained control over what requires us to type the namespace. In the above example, we removed the need to specify the namespace whenever we use the deque container. If we were also using the vector container, we would still have to type *std::vector\<myType\>* for vector type references. If there are no possibilities for name conflicts and we use many different containers from the STL, then we can make a blanket *using* declaration which covers everything in the *std* namespace:
 
-``` {.c++}
+``` {.cpp}
 using namespace std;
 ```
 
@@ -245,7 +245,7 @@ The designers of the containers in the STL were wise to attempt to keep the API 
 
 Each iterator is more or less a pointer to the element type used by the container. The *++* and *--* operators have been overloaded to go to the next or previous element in the container. Using a *vector\<int\>* in a *for* loop would look something like this:
 
-``` {.c++}
+``` {.cpp}
 #include <stdio.h>
 #include <vector>
 
@@ -279,31 +279,22 @@ We've seen a number of methods used without any explanation. Sadly, sometimes in
 
 : Sample iterator methods
 
-+-----------------------------------+-----------------------------------------------------------------------------------------------------+
-| Method                            | Description                                                                                         |
-+===================================+=====================================================================================================+
-| *iterator begin();*               | Returns an iterator pointing to the first element in the container.                                 |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------+
-| *iterator end();*                 | Returns an iterator pointing to the last element in the container.                                  |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------+
-| *size_type size();*               | Returns the number of elements in the container. *size\_type* is an unsigned integer type.          |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------+
-| *void push_back(const T &val);*   | Adds an item to the end of the container's list which has the value *val*. Note that this effectively invalidates any existing iterators. |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------+
-| *void pop_back();*                | Deletes the last item in the container.                                                             |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------+
-| *void push_front(const T &val);*  | Adds an item to the beginning of the container's list which has the value *val*. Note that this effectively invalidates any existing iterators. This method is unavailable to the *vector* class. |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------+
-| *void pop_front();*               | Deletes the first item in the container. This method is unavailable to the *vector* class.          |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------+
-|  *void clear();*                  | Deletes all items in the container.                                                                 |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------+
+| Method | Description |
+|:--|:--|
+| *iterator begin();* | Returns an iterator pointing to the first element in the container. |
+| *iterator end();* | Returns an iterator pointing to the last element in the container. |
+| *size_type size();* | Returns the number of elements in the container. *size\_type* is an unsigned integer type. |
+| *void push_back(const T &val);* | Adds an item to the end of the container's list which has the value *val*. Note that this effectively invalidates any existing iterators. |
+| *void pop_back();* | Deletes the last item in the container. |
+| *void push_front(const T &val);* | Adds an item to the beginning of the container's list which has the value *val*. Note that this effectively invalidates any existing iterators. This method is unavailable to the *vector* class. |
+| *void pop_front();* | Deletes the first item in the container. This method is unavailable to the *vector* class. |
+| *void clear();* | Deletes all items in the container. |
 
 ## Tying It All Together: An Example Usage
 
 After seeing these containers, there aren't very many instances where using a *BList* seems all that advantageous. For example, one instance where using one of these containers would be more efficient than a standard issue BList is making a list of *entry_ref* objects from a directory. Below is an example of how all of the information that we've seen about STL containers can be put to use in a way that makes sense.
 
-``` {.c++}
+``` {.cpp}
 #include <deque>
 #include <Directory.h>
 #include <Entry.h>

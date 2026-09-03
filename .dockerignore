@@ -1,0 +1,73 @@
+# Version-control metadata
+.git
+.git/**
+**/.git
+**/.git/**
+**/.hg
+**/.hg/**
+**/.svn
+**/.svn/**
+
+# Generated build output and logs
+build
+**/build
+**/build/**
+*.log
+**/*.log
+
+# macOS metadata
+.DS_Store
+**/.DS_Store
+._*
+**/._*
+
+# Editor/workspace metadata
+.vscode
+**/.vscode
+*.code-workspace
+**/*.code-workspace
+
+# Office lock files
+~$*.odt
+**/~$*.odt
+
+# Python caches and virtual environments
+__pycache__
+**/__pycache__/**
+*.py[cod]
+**/*.py[cod]
+.venv
+**/.venv
+venv
+**/venv
+env
+**/env
+
+# Generic caches and temporary files
+.cache
+**/.cache
+**/.cache/**
+.pytest_cache
+**/.pytest_cache
+**/.pytest_cache/**
+.mypy_cache
+**/.mypy_cache
+**/.mypy_cache/**
+.ruff_cache
+**/.ruff_cache
+**/.ruff_cache/**
+tmp
+**/tmp
+**/tmp/**
+*.tmp
+**/*.tmp
+
+# Environment and key files
+.env
+.env.*
+**/.env
+**/.env.*
+*.pem
+**/*.pem
+*.key
+**/*.key

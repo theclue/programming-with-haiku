@@ -321,6 +321,10 @@ $-- tables
 $--
 $if(tables)$
 \usepackage{longtable,booktabs,array}
+% Define Pandoc 3.10's counter for uncaptioned longtables.
+\makeatletter
+\@ifundefined{c@none}{\newcounter{none}}{}
+\makeatother
 $if(multirow)$
 \usepackage{multirow}
 $endif$
